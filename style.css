@@ -41,7 +41,8 @@ body * {
 }
 
 #container {
-  width: 360px;
+  width: 100%;
+  max-width: 588px;
   height: 712px;
   /* border: 1px solid gray; /*borda apenas para compreensão da caixa 'container'*/
   /* margin: auto; recurso para centralizar o container no centro*/
