@@ -33,6 +33,7 @@ body {
   /*Escrevendo o código acima em shorthand:display:
   background: color image repeat position/size*/
   background: var(--bg-url) no-repeat top center/cover;
+  height: 100vh;
 }
 
 body * {
@@ -152,4 +153,15 @@ footer {
   text-align: center;
   font-size: 14px;
   padding: 24px 0;
+}
+
+/* media queries*/
+
+@media (min-width: 700px) { /*ou seja, passou de 700px adote os parâmetros abaixo*/
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+  .light {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
 }
