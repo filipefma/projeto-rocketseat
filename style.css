@@ -84,10 +84,18 @@ body * {
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
+
+  animation: slide-back 0.3s; /* aqui não precisamos aplicar o 'forwards' porque não há necessidade, pois nosso left já está em 0 */
 }
 .light #switch button {
-  right: 0;
-  left: initial;
+  /* right: 0;
+  left: initial; */
+
+  /* não iremos usar mais as propriedades acima, para utilizarmos o recurso da animação */
+  animation: slide-in 0.3s forwards; /* o 'forwards' faz com que a animação preserve as propriedades finais */
+}
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 #switch span {
   display: block; /* por padrão, o display do span é do tipo inline, que não aceita algumas propriedades, como altura, por isso mudamos para "block" */
@@ -155,7 +163,7 @@ footer {
   padding: 24px 0;
 }
 
-/* media queries*/
+/* media queries: propriedade para deixar a página responsiva */
 
 @media (min-width: 700px) { /*ou seja, passou de 700px adote os parâmetros abaixo*/
   :root {
@@ -163,5 +171,24 @@ footer {
   }
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/* at-rules para animation */
+@keyframes slide-in { /* o 'slide-in' é o nome que demos. pode ser qualquer um */
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back { /* aplicando a mesma animação para a volta do botão */
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
